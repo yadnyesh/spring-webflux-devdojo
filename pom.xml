@@ -15,7 +15,7 @@
 	<description>Demo project for Spring Boot Webflux</description>
 
 	<properties>
-		<java.version>14</java.version>
+		<java.version>11</java.version>
 		<blockhound.version>1.0.4.RELEASE</blockhound.version>
 		<r2dbc-postgresql.version>0.8.2.RELEASE</r2dbc-postgresql.version>
 	</properties>
@@ -59,7 +59,7 @@
 		<dependency>
 			<groupId>io.projectreactor</groupId>
 			<artifactId>reactor-tools</artifactId>
-			<version>1.0.0.M1</version>
+			<version>3.3.0.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
