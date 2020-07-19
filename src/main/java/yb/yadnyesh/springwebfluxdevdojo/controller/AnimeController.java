@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import yb.yadnyesh.springwebfluxdevdojo.domain.Anime;
-import yb.yadnyesh.springwebfluxdevdojo.repository.AnimeRepository;
+import yb.yadnyesh.springwebfluxdevdojo.service.AnimeService;
 
 @RestController
 @RequestMapping("animes")
@@ -15,11 +15,11 @@ import yb.yadnyesh.springwebfluxdevdojo.repository.AnimeRepository;
 @RequiredArgsConstructor
 public class AnimeController {
 
-    private final AnimeRepository animeRepository;
+    private final AnimeService animeService;
 
     @GetMapping
     public Flux<Anime> animeFlux() {
-        return animeRepository.findAll();
+        return animeService.findAll();
     }
 }
 
