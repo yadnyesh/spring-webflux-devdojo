@@ -1,5 +1,9 @@
 package yb.yadnyesh.springwebfluxdevdojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,31 +17,19 @@ public class LinkController {
         return Mono.just(new CreateLinkResponse("http://localhost:8080/abcd1234"));
     }
 
-    static class CreateLinkRequest {
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class CreateLinkRequest {
         private String link;
-
-        public String getLink() {
-            return link;
-        }
-
-        public void setLink(String link) {
-            this.link = link;
-        }
     }
 
-    static private class CreateLinkResponse {
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class CreateLinkResponse {
         private String shortenedLink;
-
-        public CreateLinkResponse(String shortenedLink) {
-            this.shortenedLink = shortenedLink;
-        }
-
-        public String getShortenedLink() {
-            return shortenedLink;
-        }
-
-        public void setShortenedLink(String shortenedLink) {
-            this.shortenedLink = shortenedLink;
-        }
     }
 }
