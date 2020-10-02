@@ -9,6 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 @RunWith(SpringRunner.class)
 @WebFluxTest (controllers = LinkController.class)
 public class LinkControllerTest {
@@ -24,6 +26,9 @@ public class LinkControllerTest {
                 .syncBody("{\"link\":\"https://spring.io\"}")
                 .exchange()
                 .expectStatus()
-                .is2xxSuccessful();
+                .is2xxSuccessful()
+                .expectBody()
+                .jsonPath("$.shortenedLink")
+                .value(val -> assertThat(val).isEqualTo("http://localhost:8080/abcd1234"));
     }
 }
