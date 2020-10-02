@@ -3,3 +3,5 @@ spring:
     url: r2dbc:postgresql://localhost:5432/postgres?schema=anime
     username: root
     password: root
+app:
+  baseUrl: http://localhost:8080
