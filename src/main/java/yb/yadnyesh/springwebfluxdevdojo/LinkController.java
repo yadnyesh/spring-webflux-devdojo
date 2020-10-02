@@ -9,8 +9,8 @@ import reactor.core.publisher.Mono;
 public class LinkController {
 
     @PostMapping("/link")
-    Mono<Void> create(@RequestBody CreateLinkRequest request) {
-        return Mono.empty();
+    Mono<CreateLinkResponse> create(@RequestBody CreateLinkRequest request) {
+        return Mono.just(new CreateLinkResponse("http://localhost:8080/abcd1234"));
     }
 
     static class CreateLinkRequest {
@@ -22,6 +22,22 @@ public class LinkController {
 
         public void setLink(String link) {
             this.link = link;
+        }
+    }
+
+    static private class CreateLinkResponse {
+        private String shortenedLink;
+
+        public CreateLinkResponse(String shortenedLink) {
+            this.shortenedLink = shortenedLink;
+        }
+
+        public String getShortenedLink() {
+            return shortenedLink;
+        }
+
+        public void setShortenedLink(String shortenedLink) {
+            this.shortenedLink = shortenedLink;
         }
     }
 }
