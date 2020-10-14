@@ -9,17 +9,17 @@ import reactor.core.publisher.Flux;
 import yb.yadnyesh.springwebfluxdevdojo.domain.Anime;
 import yb.yadnyesh.springwebfluxdevdojo.service.AnimeService;
 
-@RestController
-@RequestMapping("animes")
-@Slf4j
-@RequiredArgsConstructor
+//@RestController
+//@RequestMapping("animes")
+//@Slf4j
+//@RequiredArgsConstructor
 public class AnimeController {
 
-    private final AnimeService animeService;
+    //private final AnimeService animeService;
 
-    @GetMapping
-    public Flux<Anime> animeFlux() {
-        return animeService.findAll();
-    }
+    //@GetMapping
+    //public Flux<Anime> animeFlux() {
+        //return animeService.findAll();
+    //}
 }
 

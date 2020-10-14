@@ -23,7 +23,7 @@ public class LinkControllerTest {
     WebTestClient webTestClient;
 
     @MockBean
-    private LinkService linkService;
+    private LinkService linkService ;
 
     @Test
     public void shortensLink() {
