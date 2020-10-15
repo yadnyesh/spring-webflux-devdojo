@@ -2,6 +2,7 @@ package yb.yadnyesh.springwebfluxdevdojo.service;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 import yb.yadnyesh.springwebfluxdevdojo.domain.Link;
@@ -21,5 +22,10 @@ public class LinkService {
     public LinkService(@Value("${app.baseUrl}") String baseUrl, LinkRepository linkRepository) {
         this.baseUrl = baseUrl;
         this.linkRepository = linkRepository;
+    }
+
+
+    public Mono<Link> getOriginalLink(String key) {
+         return linkRepository.findByKey(key);
     }
 }
