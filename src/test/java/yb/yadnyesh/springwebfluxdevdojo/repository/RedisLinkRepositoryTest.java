@@ -25,6 +25,7 @@ public class RedisLinkRepositoryTest {
                 .verifyComplete();
     }
 
+    @Test
     public void savesInRedis() {
         Link link = new Link("https://spring.io","yadnyesh");
         StepVerifier.create(redisLinkRepository.save(link)
