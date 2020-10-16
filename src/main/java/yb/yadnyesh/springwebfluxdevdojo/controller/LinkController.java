@@ -3,6 +3,7 @@ package yb.yadnyesh.springwebfluxdevdojo.controller;
 import lombok.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 import yb.yadnyesh.springwebfluxdevdojo.service.LinkService;
@@ -14,9 +15,9 @@ public class LinkController {
     private final LinkService linkService;
 
     @PostMapping("/link")
-    Mono<Object> create(@RequestBody CreateLinkRequest request) {
+    Mono<CreateLinkResponse> create(@RequestBody CreateLinkRequest request) {
         return linkService.shortenLink(request.getLink())
-                .map(CreateLinkRequest::new);
+                .map(CreateLinkResponse::new);
         //return Mono.just(new CreateLinkResponse("http://localhost:8080/abcd1234"));
     }
 
@@ -29,18 +30,15 @@ public class LinkController {
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
-    @Getter
-    @Setter
     @AllArgsConstructor
     @NoArgsConstructor
+    @Getter
+    @Setter
     public static class CreateLinkRequest {
         private String link;
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
+    @Value
     public static class CreateLinkResponse {
         private String shortenedLink;
     }

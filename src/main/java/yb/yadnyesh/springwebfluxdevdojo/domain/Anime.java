@@ -2,7 +2,6 @@ package yb.yadnyesh.springwebfluxdevdojo.domain;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
-//import org.springframework.data.relational.core.mapping.Table;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -12,7 +11,6 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Builder
 @With
-//@Table("anime")
 public class Anime {
     @Id
     private Integer id;

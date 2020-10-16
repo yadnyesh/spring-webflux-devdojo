@@ -44,8 +44,8 @@ public class LinkControllerTest {
 
     @Test
     public void redirectsToOriginalLink() {
-       when(linkService.getOriginalLink("/abcd1234"))
-               .thenReturn(Mono.just(new Link("https://spring.io", "/abcd1234")));
+       when(linkService.getOriginalLink("abcd1234"))
+               .thenReturn(Mono.just(new Link("https://spring.io", "abcd1234")));
        webTestClient.get()
                     .uri("/abcd1234")
                     .exchange()
